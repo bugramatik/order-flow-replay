@@ -52,4 +52,13 @@ services:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     ports:
      - "8083:8080"
+  replay:
+    build: ../order-flow-replay/order-flow-replay-replay
+    links:
+     - kafka
+     - postgres
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+     - "8084:8080"
 
